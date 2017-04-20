@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mft:Callouts xmlns:mft="http://xmlns.oracle.com/mft"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://xmlns.oracle.com/mftcallout.xsd">
-
-    <mft:Callout description="Invoke HCM SOAP to load file from UCM"
-      helpText="Invoke HCM to load UCM/WCC file"
-      groupName="Target-post" timeout="1800" implementationClass="PostInvokeHCM"
-      libraryName="PostInvokeHCM.jar" name="PostInvokeHCM">
-
-        <mft:Parameter description="HCM Endpoint" helpText="Location of HCM SOAP endpoint"
-          name="hcmendpoint" mandatory="true" parameterType="string"
-          defaultValue="https://[HCM_Base_URL]/hcmCommonDataLoader/HCMDataLoader"/>
-
+<mft:Callouts xmlns:mft="http://xmlns.oracle.com/mft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.oracle.com/mft callout.xsd ">
+    <mft:Callout description="Invoke HCM SOAP to load file from UCM" helpText="Invoke HCM to load UCM/WCC file" groupName="Target-post"
+                 timeout="1800" implementationClass="com.oracle.mft.sample.hcm.PostInvokeHCM"
+                 libraryName="PostInvokeHCM.jar" name="PostInvokeHCM">
+        <mft:Parameter description="HCM Endpoint" helpText="Location of HCM SOAP endpoint" name="hcmendpoint" mandatory="true"
+                       parameterType="string"/>
         <mft:Parameter description="HCM Username" helpText="Username for HCM SOAP endpoint"
-          name="hcmuser" parameterType="string"
-          defaultValue="HCM_USER"/>
-
+                       name="hcmuser" parameterType="string"/>
         <mft:Parameter description="HCM password" helpText="Password for HCM SOAP endpoint"
-          name="hcmpassword" parameterType="credential"
-          defaultValue="PASSWORD"/>
-
+                        name="hcmpassword" parameterType="credential"/>
+        <mft:Parameter description="Use the filename as the DocId required for HCM"
+                        helpText="Check if you are sending directly to HCM"
+                        name="useFilenameForDocid"
+                        parameterType="boolean"
+                        defaultValue="true"/>
     </mft:Callout>
 </mft:Callouts>
